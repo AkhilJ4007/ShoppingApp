@@ -1,0 +1,23 @@
+
+
+.fixedtop{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.categories{
+    margin-top: 18vh;
+}
+
+.firstRow{
+    height: 30vh;
+    max-height: 30vh;
+}
+
+.secondRow{
+    height: 40vh;
+    max-height: 40vh;
+    margin-top: 25px;
+}

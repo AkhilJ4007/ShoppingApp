@@ -1,0 +1,9 @@
+.categoryWrapper{
+    position: relative;
+    max-height: inherit;
+    width: inherit;
+}
+img{
+    max-height: inherit;
+    width: inherit;
+}
