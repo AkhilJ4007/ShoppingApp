@@ -1,4 +1,5 @@
 import React,{ useState } from 'react'
+import {NavLink} from 'react-router-dom';
 import {
     Collapse,
     Navbar,
@@ -6,7 +7,6 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
 } from 'reactstrap';
 import './header.styles.css'
 
@@ -17,20 +17,33 @@ function Header() {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <Navbar style={{backgroundColor: 'white'}}light expand="sm">
-        <NavbarBrand href="/">AJJ Inc.</NavbarBrand>
+        <Navbar style={{backgroundColor: 'white', fontFamily: "inherit"}} light expand="sm">
+        <NavbarBrand style = {{fontWeight:600}}><NavLink to="/">AJJ Inc.</NavLink></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-        <Nav className="ml-auto" navbar>
+        <Nav className="ml-auto topBotomBordersOut" navbar>
+        
             <NavItem>
-            <NavLink href="/components/">Components</NavLink>
+                <NavLink to = "/shop">
+                Shop
+                </NavLink>
             </NavItem>
+            
             <NavItem>
-            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink to = "/contact">
+                Contact
+                </NavLink>
             </NavItem>
+
+            <NavItem>
+                <NavLink to = "/login">
+                Login
+                </NavLink>
+            </NavItem>
+            
         </Nav>
         </Collapse>
-            </Navbar>
+        </Navbar>
     )
 }
 
