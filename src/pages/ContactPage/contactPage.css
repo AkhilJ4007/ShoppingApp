@@ -1,0 +1,35 @@
+.fixedtop{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container{
+    height: 100vh;
+}
+
+.contactHeading{
+    padding-top: 20vh;
+}
+.contactUS{
+    display: inline-block;
+    position: relative;
+}
+.contactUS::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 2px;
+    border-bottom: 1px solid black;
+    z-index: 1;
+}
+
+
+
+
+

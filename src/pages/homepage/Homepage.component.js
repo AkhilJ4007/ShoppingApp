@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from "../components/header/header.component"
+import Header from "../../components/header/header.component"
 import "./homepage.component.css"
 import { Container, Row, Col } from 'reactstrap';
-import Category from '../components/category/category.component.js'
+import Category from '../../components/category/category.component.js'
 
 function HomePage() {
     return (

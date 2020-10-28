@@ -1,9 +1,59 @@
+img{
+    max-height: inherit;
+    width: inherit;
+    object-fit: cover;
+
+}
+
 .categoryWrapper{
     position: relative;
     max-height: inherit;
     width: inherit;
+    border: 1px solid black;
 }
-img{
-    max-height: inherit;
-    width: inherit;
+
+.itemBox{
+
+    position: absolute;
+    height: 40%;
+    width: 60%;
+    background-color: rgba(256,256,256,0.4);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    border: 1px solid black;
+    color: black
 }
+
+.itemBox:hover{
+    background-color: rgba(256,256,256,0.5);
+}
+
+
+.itemDesc{
+    position: absolute;
+    display: inline-block;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    
+
+}
+
+
+
+.itemDesc > div{
+    text-align: center;
+}
+
+.itemDesc > .heading{
+    font-size: 1.2rem;
+}
+
+.itemDesc > .description{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
