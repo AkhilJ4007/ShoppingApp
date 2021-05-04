@@ -4,13 +4,13 @@ import { Container, Row, Col } from 'reactstrap';
 import Header from "../../components/header/header.component"
 import SignIn from '../../components/signIn/signIn.component.js'
 function LoginPage() {
+
+
     return (
         <div>
 
         
-        <div className = "fixedtop">
-        <Header />
-        </div>
+    
         <div>
         
         <Container className = "loginContainer">

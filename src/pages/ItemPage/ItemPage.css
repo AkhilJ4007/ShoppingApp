@@ -1,0 +1,25 @@
+
+
+.containerStyle{
+    margin-top: 10rem;
+}
+
+.productDescription > .row{
+
+margin-top: 1rem;
+
+}
+
+
+.shoppingImageWrapper{
+    height: 75%;
+}
+
+.shoppingImageWrapper > img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}

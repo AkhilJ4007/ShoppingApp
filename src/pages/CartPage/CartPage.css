@@ -1,0 +1,17 @@
+.fixedtop{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+.productHeading{
+    margin-top: 4rem;
+    height: 20vh;
+}
+
+.productHeading > h2{
+    margin:auto
+}

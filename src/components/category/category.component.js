@@ -2,17 +2,14 @@ import React from 'react'
 import './category.component.css'
 
 
-function Category({img}) {
+function Category({img, name}) {
     return (
         <div className = "categoryWrapper">
             <img src = {img}/>
             <div className = "itemBox">
                 <div className = "itemDesc">
                     <div className = "heading">
-                        Hello
-                    </div>
-                    <div className = "description">
-                        Hello
+                        {name}
                     </div>
                 </div>
             </div>

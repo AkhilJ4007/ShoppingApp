@@ -6,9 +6,6 @@ import { Container, Row, Col } from 'reactstrap';
 function ContactPage() {
     return (
         <div>
-        <div className = "fixedtop">
-            <Header />
-        </div>
         <Container>
             <Row className = "contactHeading">
                 <Col className = "fitContent">
