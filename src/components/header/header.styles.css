@@ -1,8 +1,12 @@
+.nav-item{
+    margin-right: 1rem;
+}
+
 .nav-item a{
     color: black;
-    margin-right: 1rem;
     position: relative;
-    padding: 0.5rem 0rem;
+    padding: 0.25rem 0rem;
+    display: block;
 }
 
 .nav-item a:hover{
@@ -12,14 +16,41 @@
 
 .navbar-brand a{
     color: black;
+    margin : 0.5rem
+    
 }
 
 .navbar-brand a:hover{
     color: black;
     text-decoration: none;
+    
 }
 
-.topBotomBordersOut a:before, .topBotomBordersOut a:after
+
+
+.dropdown button{
+
+    color: black;
+    background-color: white;  
+    transition: border-color 0.4s;
+    
+}
+
+.dropdown button:hover{
+
+    color: black;
+    background-color: white; 
+    border-color: black; 
+}
+.dropdown button:focus{
+    box-shadow: none;
+}
+
+button.dropdown-item:hover {
+    background-color: rgba(128, 128, 128, 0.7);
+}
+
+.nav-item>a:before, .nav-item>a:after
 {
     position: absolute;
     left: 0px;
@@ -31,21 +62,22 @@
     transition: all 0.3s;
 }
 
-.topBotomBordersOut a:before
+.nav-item > a:before
 {
     top: 0px;
     transform: translateY(10px);
 }
 
-.topBotomBordersOut a:after
+.nav-item > a:after
 {
     bottom: 0px;
     transform: translateY(-10px);
 }
 
-.topBotomBordersOut a:hover:before, .topBotomBordersOut a:hover:after
+.nav-item > a:hover:before, .nav-item > a:hover:after
 {
     opacity: 1;
     transform: translateY(0px);
 }
+
 

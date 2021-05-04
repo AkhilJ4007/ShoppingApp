@@ -1,0 +1,38 @@
+.fixedtop{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.banner{
+    position: relative;
+    
+}
+
+.banner > img {
+    max-width: 100vw;
+    height: 80vh;
+    object-fit: cover;
+}
+
+.banner > div{
+    font-weight: 400;
+    position: absolute;
+    top: 40%;
+    left: 2rem;
+}
+
+.productHeading{
+    height: 20vh;
+}
+
+.productHeading > h2{
+    margin:auto
+}
+
+.container{
+    height: auto;
+}
+

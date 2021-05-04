@@ -23,7 +23,8 @@ img{
     left: 50%;
     transform:translate(-50%,-50%);
     border: 1px solid black;
-    color: black
+    color: black;
+    transition: background-color 0.4s;
 }
 
 .itemBox:hover{

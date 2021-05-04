@@ -1,0 +1,38 @@
+// Import the redux-saga/effects
+import {
+    put,
+    call,
+    takeEvery
+} from 'redux-saga/effects'
+const axios = require("../axios")
+const userTypes = require("../redux/user/userTypes").userTypes
+
+// Here's the unique part, generator function*, function with asterisk(*)
+  // Get Todos
+function* getUser() {
+    const user = yield call(axios.getUser)
+    console.log("User ",user)
+    yield put({ type: userTypes.getUser, payload: user })
+}
+
+function* login() {
+  const user = yield call(axios.login)
+  yield put({ type: userTypes.getUser, payload: user })
+}
+
+function* logout() {
+  const logout = yield call(axios.logout)
+  if(logout){
+    yield put({type: userTypes.logout, payload: true})
+  }
+}
+
+
+
+// Export the saga (store-saga)
+export default function* userSaga() {
+
+yield takeEvery(userTypes.getUserSaga, getUser)
+yield takeEvery(userTypes.loginSaga, login)
+yield takeEvery(userTypes.logoutSaga, logout)
+}
