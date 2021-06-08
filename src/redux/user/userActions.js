@@ -6,11 +6,38 @@ export const getUserSaga = () => {
     })
 } 
 
-export const loginSaga = () => {
+export const loginSaga = (userInfo) => {
     return({
-        type: userTypes.loginSaga
+        type: userTypes.loginSaga,
+        payload: userInfo
     })
 } 
+
+export const login = (userInfo) => {
+    return({
+        type: userTypes.login,
+        payload: userInfo
+    })
+}
+
+export const signUpSaga = (userInfo) => {
+
+    return({
+        type: userTypes.signUpSaga,
+        payload: userInfo
+    })
+
+}
+
+export const signUp = (userInfo) => {
+
+    return({
+        type: userTypes.signUp,
+        payload: userInfo
+    })
+
+}
+
 
 export const googleLoginSaga = () => {
 

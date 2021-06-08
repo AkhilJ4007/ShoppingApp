@@ -5,6 +5,11 @@ headers: {'Content-Type': 'application/json'}
 });
 
 
+export const axiosFormData = Axios.create({ baseURL: "http://localhost:3000",
+headers: {'Content-Type': 'multipart/form-data'}
+});
+
+
 //---------- SHOP AXIOS ---------
 // Get All Shopping Items
 export const getAllShoppingItems = async () => {
@@ -19,7 +24,7 @@ export const getAllShoppingItems = async () => {
 // get shopping item
 export const getShoppingItem = (productID) => async () => {
     try {
-        //console.log("Product Id ",productID)
+        
     const shoppingItems = await axios.get('/product/getProduct',{params:{id: productID }})
 
     return shoppingItems.data
@@ -27,6 +32,29 @@ export const getShoppingItem = (productID) => async () => {
     return console.error(err)
     }
 }
+
+// add shopping item
+export const addShoppingItem = (product) => async () => {
+    try {
+        var formData = new FormData();
+        formData.append("image",product.image[0])
+        formData.append("name",product.name)
+        formData.append("quantity",product.quantity)
+        formData.append("description",product.description)
+        formData.append("price",product.price)
+        formData.append("category",product.category)
+        console.log("Product",product)
+    const shoppingItems = await axiosFormData.post('/product/addProduct',formData,{
+        withCredentials: true
+    })
+    
+    return shoppingItems.data
+
+    } catch(err) {
+    return console.error(err)
+    }
+}
+
 //---------- USER AXIOS ---------
 // get user
 export const getUser = async () => {
@@ -42,10 +70,10 @@ export const getUser = async () => {
 
 }
 // login
-export const login = async () => {
+export const login = userData => async () => {
 
     try{
-        const user = await axios.get('/auth/signIn')
+        const user = await axios.post('/auth/signIn',userData, { credentials: 'include'})
         return user.data
     }
     
@@ -55,11 +83,31 @@ export const login = async () => {
 
 }
 
+
+//sign_up
+
+export const signUp = userData => async () => {
+
+    try{
+        //console.log("in Signup saaga",userData)
+        const user = await axios.post('/auth/signup',userData, {withCredentials: true, credentials: 'include'})
+        return user.data
+    }
+    
+    catch(err) {
+        return console.error(err)
+    }
+
+
+}
+
 //login
 export const logout = async () => {
 
+    console.log(" In Logout")
+
     try{
-        const logout = await axios.get('/auth/logout',{withCredentials: true})
+        const logout = await axios.get('/auth/logout', {withCredentials: true, credentials: 'include'})
 
         if(logout.status === 200){
             return true;

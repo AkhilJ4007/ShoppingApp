@@ -6,6 +6,7 @@ import ContactPage from './pages/ContactPage/contactPage.js'
 import ShoppingPage from './pages/ShoppingPage/shoppingPage.js'
 import CartPage from './pages/CartPage/CartPage.js'
 import ItemPage from './pages/ItemPage/ItemPage.js'
+import AddItemPage from './pages/AddItemPage/AddItemPage.js'
 import { Route, Switch } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import {getUserSaga} from "./redux/user/userActions"
@@ -33,6 +34,8 @@ function App() {
       <Route exact path = "/shop" component = {ShoppingPage}/>
       <Route exact path = "/cart" component = {CartPage}/>
       <Route exact path = "/item/:id" component = {ItemPage}/>
+      <Route exact path = "/addItem" component = {AddItemPage}/>
+
     </Switch>
     
     </div>

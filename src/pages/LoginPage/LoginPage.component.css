@@ -4,7 +4,9 @@
     height: 100vh;
 }
 
-
+.itemContainer{
+    margin-top: 10%;
+}
 
 .fixedtop{
     position: fixed;
@@ -17,6 +19,13 @@
 .rowContainer{
     justify-content: center;
     transform: translateY(50%);
+}
+
+.addItemRow{
+
+    margin-top: 25%;
+    
+
 }
 
 @media only screen and (max-width: 575px) {

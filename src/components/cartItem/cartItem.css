@@ -13,9 +13,6 @@
     background-color: white;
     transition: 0.3s;
 }
-.shoppingImageWrapper{
-    height: 75%;
-}
 
 .shoppingImageWrapper > img{
     max-width: 100%;

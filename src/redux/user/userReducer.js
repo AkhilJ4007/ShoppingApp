@@ -5,7 +5,7 @@ const INITIAL_STATE = {
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
-    console.log("In userReducer")
+    //console.log("In userReducer",action.payload)
     switch(action.type) {
         // all login types can use this
 

@@ -15,9 +15,17 @@ function* getUser() {
     yield put({ type: userTypes.getUser, payload: user })
 }
 
-function* login() {
-  const user = yield call(axios.login)
+function* login(action) {
+  const user = yield call(axios.login(action.payload))
   yield put({ type: userTypes.getUser, payload: user })
+}
+
+function* signUp(action) {
+  //console.log("In Sign up saga",action.payload)
+  const user = yield call(axios.signUp(action.payload))
+  yield put({ type: userTypes.getUser, payload: user })
+
+
 }
 
 function* logout() {
@@ -29,10 +37,13 @@ function* logout() {
 
 
 
+
+
 // Export the saga (store-saga)
 export default function* userSaga() {
 
 yield takeEvery(userTypes.getUserSaga, getUser)
 yield takeEvery(userTypes.loginSaga, login)
 yield takeEvery(userTypes.logoutSaga, logout)
+yield takeEvery(userTypes.signUpSaga, signUp)
 }

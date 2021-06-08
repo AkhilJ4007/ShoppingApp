@@ -4,22 +4,31 @@ import "./signIn.component.css"
 import "../../css/buttonAnimation.css"
 import { useForm } from "react-hook-form";
 import {useSelector,useDispatch} from 'react-redux'
-import {googleLoginSaga} from "../../redux/user/userActions"
-
+import {googleLoginSaga,signUpSaga,loginSaga} from "../../redux/user/userActions"
 function SignIn({signIn}) {
 
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch()  
 
+    
+
     let userName = () => {
         return(
+            <>
             <FormControl >
             {/* email */}
-            <InputLabel htmlFor="userName">UserName</InputLabel>
-            <Input id="userName" name = "userName" aria-describedby="userNameTxt" />
-            <FormHelperText id="userNameTxt">We'll use this for validation wrong pass nd stuff</FormHelperText>
+            <InputLabel htmlFor="name">Name</InputLabel>
+            <Input inputRef = {register} id="name" name = "name" aria-describedby="userNameTxt" />
+            <FormHelperText id="userNameTxt"></FormHelperText>
             </FormControl>
-            
+
+            <FormControl >
+            {/* number */}
+            <InputLabel htmlFor="number">Number</InputLabel>
+            <Input inputRef = {register} id="number" name = "number" aria-describedby="userNameTxt" />
+            <FormHelperText id="userNameTxt"></FormHelperText>
+            </FormControl>
+            </>
         )
     }
 
@@ -33,7 +42,11 @@ function SignIn({signIn}) {
     // data exists in this function
 
     const onSubmit = data => {
-        console.log(data)
+        //console.log(data)
+        const action = signIn ? loginSaga : signUpSaga
+
+        dispatch(action(data))
+
     };
 
     return (
@@ -53,7 +66,7 @@ function SignIn({signIn}) {
             {/* email */}
             <InputLabel htmlFor="email">Email address</InputLabel>
             <Input inputRef = {register} type="text" name = "email" id="email" aria-describedby="emailText" />
-            <FormHelperText id="emailText">We'll use this for validation wrong pass nd stuff</FormHelperText>
+            <FormHelperText id="emailText"></FormHelperText>
             </FormControl>
             </div>
 
@@ -62,7 +75,7 @@ function SignIn({signIn}) {
             <FormControl >
             <InputLabel htmlFor="password">Password</InputLabel>
             <Input inputRef = {register} type="text" name = "password" id="password" aria-describedby="passwordText" />
-            <FormHelperText id="passwordText">We'll use this for validation wrong pass nd stuff</FormHelperText>
+            <FormHelperText id="passwordText"></FormHelperText>
             </FormControl>
             </div>
             
@@ -72,10 +85,10 @@ function SignIn({signIn}) {
 
             </form>
             
-            <div>
-                
-            </div>
+            <div style = {{marginTop:"1rem"}}>
                 <button onClick = {googleSignIn} > Sign in with google</button>
+            </div>
+                
             </div>
         </div>
     )
