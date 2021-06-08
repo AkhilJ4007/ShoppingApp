@@ -1,11 +1,12 @@
 import React from 'react'
 import './shoppingItem.component.css'
-
+const imageUrl = "http://localhost:3000/product/getImage/"
 function ShoppingItem({item,onItemClick}) {
+    const newImageUrl = imageUrl + item.imageName
     return (
         <div className = "shoppingItemWrapper" onClick = {onItemClick(item._id)}>
             <div className = "shoppingImageWrapper">
-            <img src = "https://images.pexels.com/photos/2950650/pexels-photo-2950650.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+            <img src = {newImageUrl} />
             </div>
             <div>
                 {item.name}

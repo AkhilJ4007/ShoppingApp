@@ -31,3 +31,10 @@ export const getShoppingItem = (shoppingItem) => {
         payload: shoppingItem
     })
 }
+
+export const addShoppingItem = (shoppingItem) => {
+    return({
+        type: shoppingTypes.addShoppingItemSaga,
+        payload: shoppingItem
+    })
+}

@@ -2,6 +2,7 @@
 
 .containerStyle{
     margin-top: 10rem;
+    height: auto;
 }
 
 .productDescription > .row{
@@ -11,9 +12,6 @@ margin-top: 1rem;
 }
 
 
-.shoppingImageWrapper{
-    height: 75%;
-}
 
 .shoppingImageWrapper > img{
     max-width: 100%;

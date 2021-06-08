@@ -6,12 +6,15 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from 'reac
 import {useSelector,useDispatch} from 'react-redux';
 import {getShoppingItemSaga} from '../../redux/shopping_items/shopping_items.actions'
 import {addCartItemSaga} from '../../redux/cart/cart.actions'
+const imageUrl = "http://localhost:3000/product/getImage/"
 function ItemPage(props) {
     const productId = props.match.params.id;
     const dispatch = useDispatch();
     const product = useSelector(state => state.shoppingItems.selectedItem)
 
     let textInput = React.createRef();
+
+    const newImageName = product ? imageUrl + product.imageName : "https://media.istockphoto.com/photos/no-image-available-picture-id531302789"
 
     const [numberOfitems , setItemNumber] = useState(null);
     const [itemId , setId] = useState(null);
@@ -53,7 +56,7 @@ function ItemPage(props) {
                 <Row>
                     <Col xs = "6">
                     <div className = "shoppingImageWrapper">
-                    <img src = "https://images.pexels.com/photos/2950650/pexels-photo-2950650.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"/>
+                    <img src = {newImageName}/>
                     </div>
                     </Col>
 
@@ -65,9 +68,7 @@ function ItemPage(props) {
                             <Row>
                                 <h4>${product ? product.price : ""}</h4>
                             </Row>
-                            <Row>
-                                <h6>Seller</h6>
-                            </Row>
+                        
                             <Row>
                                 <div>{product ? product.description : ""}</div>
                             </Row>

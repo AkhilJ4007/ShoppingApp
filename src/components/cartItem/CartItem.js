@@ -7,7 +7,7 @@ const cartHeadingStyle = {
     borderBottom: "2px solid rgba(0, 0, 0, 1)"
 }
 
-
+const imageUrl = "http://localhost:3000/product/getImage/"
 
 function CartItem({heading,cartItem}) {
     
@@ -15,16 +15,19 @@ function CartItem({heading,cartItem}) {
 
     const dispatch = useDispatch();
 
+    const newImageName = cartItem ? imageUrl + cartItem.productId.imageName : "https://media.istockphoto.com/photos/no-image-available-picture-id531302789"
     const deleteItem = () => {
         console.log("Product Id", cartItem.productId._id)
         dispatch(deleteCartItemSaga(cartItem.productId._id))
     }
     return (
+        <div>
+    
             <Row className = "cartItemRow" style = {headingStyle}>
                 <Col xs="3">
                     {heading? "Item" :  
                 <div className = "shoppingImageWrapper">
-                <img src = "https://images.pexels.com/photos/2950650/pexels-photo-2950650.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+                <img src = {newImageName}/>
                 </div>
             }
                 </Col>
@@ -48,6 +51,8 @@ function CartItem({heading,cartItem}) {
                     </div>
                 </Col>
             </Row>
+            
+        </div>
     )
 }
 

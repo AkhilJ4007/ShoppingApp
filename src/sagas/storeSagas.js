@@ -25,8 +25,16 @@ const shoppingConstants = require("../redux/shopping_items/shopping_items.types"
       yield put({ type: shoppingConstants.getShoppingItem, payload: shoppingItem })
   }
 
+  function* addShoppingItem(action) {
+    
+    const shoppingItem = yield call(axios.addShoppingItem(action.payload))
+    yield put({ type: shoppingConstants.addShoppingItem, payload: shoppingItem })
+}
+
+
   // Export the saga (store-saga)
 export default function* storeSaga() {
     yield takeEvery(shoppingConstants.getShoppingItemsSaga, getShoppingItems)
     yield takeEvery(shoppingConstants.getShoppingItemSaga, getShoppingItem)
+    yield takeEvery(shoppingConstants.addShoppingItemSaga, addShoppingItem)
 }

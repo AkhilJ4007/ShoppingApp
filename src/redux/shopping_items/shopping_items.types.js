@@ -5,6 +5,7 @@ export const shoppingTypes = {
     getShoppingItemSaga: "GET_SHOPPING_ITEM_SAGA",
     fetchShoppingItems : "FETCH_SHOPPING_ITEMS",
     addShoppingItem : "ADD_SHOPPING_ITEM",
+    addShoppingItemSaga : "ADD_SHOPPING_ITEM_SAGA",
     setLoading : "SET_LOADING",
 
 }

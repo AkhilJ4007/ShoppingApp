@@ -1,0 +1,26 @@
+
+
+.udayppu{
+
+    height: 40px;
+
+}
+
+.buttonStyle{
+    border: none;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: none;
+}
+
+form > div {
+
+    margin-top: 10px;
+
+}
+
+.inputImage::before{
+
+    border-bottom-color: white;
+
+}

@@ -54,11 +54,11 @@ function Header() {
                 
                 <Dropdown  isOpen={dropdownOpen} toggle={toggleDropDown}>
                     <DropdownToggle className="dropdownbutton" color = "black" caret>
-                        {user.user.name}
+                        {user ? user.user.name : ""}
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem><NavLink className = "menuItemsNav" to = "/cart">My Cart</NavLink></DropdownItem>
-                        <DropdownItem>Sell Item</DropdownItem>
+                        <DropdownItem><NavLink className = "menuItemsNav" to = "/addItem">Sell Item</NavLink></DropdownItem>
                         <DropdownItem onClick = {logout}>Logout</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
