@@ -73,7 +73,7 @@ export const getUser = async () => {
 export const login = userData => async () => {
 
     try{
-        const user = await axios.post('/auth/signIn',userData, { credentials: 'include'})
+        const user = await axios.post('/auth/signIn',userData, { withCredentials: true, credentials: 'include'})
         return user.data
     }
     
