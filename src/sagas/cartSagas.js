@@ -6,10 +6,11 @@ import {
 } from 'redux-saga/effects'
 const axios = require("../axios")
 const cartConstants = require("../redux/cart/cart.types").cartTypes
+const alertTypes = require("../redux/alerts/alerts.types").alertTypes
 
 function* addToCart(action) {
     const addItem = yield call(axios.addCartItem(action.payload))
-    //console.log("Message",addItem)
+    yield put({ type: alertTypes.alert, payload: "Item is added to cart" })
     yield put({ type: cartConstants.addCartItem, payload: addItem })
 }
 

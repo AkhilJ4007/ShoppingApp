@@ -15,26 +15,30 @@ function SignIn({signIn}) {
     let userName = () => {
         return(
             <>
+            <div>
             <FormControl >
             {/* email */}
             <InputLabel htmlFor="name">Name</InputLabel>
             <Input inputRef = {register} id="name" name = "name" aria-describedby="userNameTxt" />
             <FormHelperText id="userNameTxt"></FormHelperText>
             </FormControl>
+            </div>
 
+            <div>
             <FormControl >
             {/* number */}
             <InputLabel htmlFor="number">Number</InputLabel>
             <Input inputRef = {register} id="number" name = "number" aria-describedby="userNameTxt" />
             <FormHelperText id="userNameTxt"></FormHelperText>
             </FormControl>
+            </div>
             </>
         )
     }
 
     const googleSignIn = () => {
 
-        window.open("http://localhost:3000/auth/google","_self")
+        window.open("https://shopping-app-akj.herokuapp.com/auth/google","_self")
 
         // console.log("In google Sign in component")
         // dispatch(googleLoginSaga())

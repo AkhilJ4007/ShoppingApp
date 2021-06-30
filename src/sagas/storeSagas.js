@@ -10,10 +10,10 @@ const shoppingConstants = require("../redux/shopping_items/shopping_items.types"
 
   // Here's the unique part, generator function*, function with asterisk(*)
   // Get Shopping items
-    function* getShoppingItems() {
+    function* getShoppingItems(action) {
       
         yield put({ type: shoppingConstants.setLoading })
-        const shoppingItems = yield call(axios.getAllShoppingItems)
+        const shoppingItems = yield call(axios.getAllShoppingItems(action.payload))
         yield put({ type: shoppingConstants.getShoppingItems, payload: shoppingItems })
     }
 

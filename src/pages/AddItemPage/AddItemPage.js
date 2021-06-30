@@ -77,6 +77,7 @@ function AddItemPage() {
                 <MenuItem value="M">Mens</MenuItem>
                 <MenuItem value="W">Womens</MenuItem>
                 <MenuItem value="SB">Shoes and Bags</MenuItem>
+                <MenuItem value="K">Kids </MenuItem>
                 <MenuItem value="AC">Accesories</MenuItem>
                 </ReactHookFormSelect>
                 

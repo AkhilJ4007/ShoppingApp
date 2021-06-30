@@ -11,30 +11,60 @@ function ShoppingPage(props) {
 
     const shoppingItems = useSelector(state => state.shoppingItems.shoppingItems)
     const dispatch = useDispatch()  
-    
-    
+    const category = props.match.params.cat;
+    let title = ""
+    //console.log("Category",category)
     useEffect(() => {
-        dispatch(getShoppingItemsSaga())
-    }, [dispatch])
+        if(category === "M" || category === "W" || category === "K" || category === "SB" || category === "AC"){
+            console.log("In here",category)
+            dispatch(getShoppingItemsSaga(category))
+        }
+        else{
+            dispatch(getShoppingItemsSaga(null))
+        }
+    }, [category])
 
     const onItemClick = (id) => () => {
         const path = '/item/'+id;
         props.history.push(path);
     }
 
+    switch(category) {
+        case "M":
+                title = "Men's Collection"
+                break;
+        case "W":
+            title = "Women's Collection"
+            break;
+        case "SB":
+            title = "Shoes and Bags"
+            break;
+        case "AC":
+            title = "Accesories"
+            break;
+        case "K":
+            title = "Kid's Collection"
+            break;
+        
+        default :
+            title = "Collections";
+            break;
+    }
+
+
     return (
         <div>
             <div className = "banner">
                 <img src = '//cdn.shopify.com/s/files/1/1132/3440/t/4/assets/homepage_hero_image.jpg?v=4275821292699920323'/>
                 <div>
-                <h1>Collections</h1>
+                <h1>{title}</h1>
                 <div>Here are our summer collections</div>
                 </div>
             </div>
 
         <Container>
             <Row className = "productHeading">
-                <h2>Featured Products</h2>
+                <h2>Products</h2>
             </Row>
             <Row>
                 {
