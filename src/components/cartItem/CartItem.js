@@ -7,7 +7,7 @@ const cartHeadingStyle = {
     borderBottom: "2px solid rgba(0, 0, 0, 1)"
 }
 
-const imageUrl = "http://localhost:3000/product/getImage/"
+const imageUrl = "https://shopping-app-akj.herokuapp.com/product/getImage/"
 
 function CartItem({heading,cartItem}) {
     
