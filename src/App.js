@@ -32,6 +32,7 @@ function App() {
       <Route exact path = "/login" component = {LoginPage}/>
       <Route exact path = "/contact" component = {ContactPage}/>
       <Route exact path = "/shop" component = {ShoppingPage}/>
+      <Route exact path = "/shop/:cat" component = {ShoppingPage}/>
       <Route exact path = "/cart" component = {CartPage}/>
       <Route exact path = "/item/:id" component = {ItemPage}/>
       <Route exact path = "/addItem" component = {AddItemPage}/>

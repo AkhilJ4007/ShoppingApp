@@ -6,7 +6,7 @@ import {
 } from 'redux-saga/effects'
 const axios = require("../axios")
 const userTypes = require("../redux/user/userTypes").userTypes
-
+const alertTypes = require("../redux/alerts/alerts.types").alertTypes
 // Here's the unique part, generator function*, function with asterisk(*)
   // Get Todos
 function* getUser() {
@@ -17,13 +17,29 @@ function* getUser() {
 
 function* login(action) {
   const user = yield call(axios.login(action.payload))
-  yield put({ type: userTypes.getUser, payload: user })
+  if(user instanceof Error){
+    console.log("In Error",user.message)
+      yield put({ type: alertTypes.alert, payload: user.message })
+  }
+  else {
+    yield put({ type: userTypes.getUser, payload: user })
+  }
+
 }
 
 function* signUp(action) {
   //console.log("In Sign up saga",action.payload)
   const user = yield call(axios.signUp(action.payload))
-  yield put({ type: userTypes.getUser, payload: user })
+  if(user instanceof Error){
+    console.log("In Error")
+      yield put({ type: alertTypes.alert, payload: user.message })
+  }
+  else{
+
+    yield put({ type: userTypes.getUser, payload: user })
+    yield put({ type: alertTypes.alert, payload: "Account created" })
+  }
+
 
 
 }

@@ -2,9 +2,11 @@ import React from 'react'
 import './category.component.css'
 
 
-function Category({img, name}) {
+function Category({img, name,cat,onItemClick}) {
+
+
     return (
-        <div className = "categoryWrapper">
+        <div onClick = {onItemClick(cat)} className = "categoryWrapper">
             <img src = {img}/>
             <div className = "itemBox">
                 <div className = "itemDesc">

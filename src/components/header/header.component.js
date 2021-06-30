@@ -13,8 +13,10 @@ import './header.styles.css'
 import {useSelector,useDispatch} from 'react-redux'
 import {logoutSaga} from '../../redux/user/userActions'
 import { Alert } from 'reactstrap';
+import {dismissAlert} from "../../redux/alerts/alert.actions"
 function Header() {
     const user = useSelector(state => state.user.user)
+    const alerts = useSelector(state => state.alert)
     const [isOpen, setIsOpen] = useState(false);
     const dispatch = useDispatch()
     const toggle = () => setIsOpen(!isOpen);
@@ -22,6 +24,14 @@ function Header() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggleDropDown = () => setDropdownOpen(prevState => !prevState);
+
+
+    // for alerts
+    const [visible, setVisible] = useState(true);
+
+    const onDismiss = () => {
+        dispatch(dismissAlert())
+    }
 
     const logout = () => {
         console.log("In logout component")
@@ -71,9 +81,9 @@ function Header() {
         </Collapse>
         </Navbar>
 
-    <Alert color="secondary">
-    This is a secondary alert — check it out!
-    </Alert>
+        <Alert color="info" isOpen={alerts.toggle} toggle={onDismiss}>
+        {alerts.message}
+        </Alert>
 
     </>
         

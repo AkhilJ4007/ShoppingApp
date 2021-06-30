@@ -1,22 +1,36 @@
 import Axios from "axios";
+import {useSelector,useDispatch} from 'react-redux'
 
-export const axios = Axios.create({ baseURL: "http://localhost:3000",
+
+
+export const axios = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
 headers: {'Content-Type': 'application/json'}
 });
 
 
-export const axiosFormData = Axios.create({ baseURL: "http://localhost:3000",
+export const axiosFormData = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
 headers: {'Content-Type': 'multipart/form-data'}
 });
 
 
 //---------- SHOP AXIOS ---------
 // Get All Shopping Items
-export const getAllShoppingItems = async () => {
+export const getAllShoppingItems =(cat) => async () => {
     try {
-    const shoppingItems = await axios.get('/product/getProducts')
+    
+        if(cat === null){
+        const shoppingItems = await axios.get('/product/getProducts')
+        return shoppingItems.data
+        }
 
-    return shoppingItems.data
+        else {
+
+            const shoppingItems = await axios.get('/product/getCategory',{params:{category: cat }})
+            return shoppingItems.data
+
+        }
+
+
     } catch(err) {
     return console.error(err)
     }
@@ -73,12 +87,17 @@ export const getUser = async () => {
 export const login = userData => async () => {
 
     try{
-        const user = await axios.post('/auth/signIn',userData, { withCredentials: true, credentials: 'include'})
-        return user.data
+        const user = await axios.post('/auth/signIn',userData, { withCredentials: true, credentials: 'include'}).catch( (error) => {
+            if (error.response) {
+                console.log(error.response.data.message);
+                throw new Error(error.response.data.message);
+            }
+        })
+            return user.data
     }
     
     catch(err) {
-        return console.error(err)
+        return err
     }
 
 }
@@ -90,12 +109,18 @@ export const signUp = userData => async () => {
 
     try{
         //console.log("in Signup saaga",userData)
-        const user = await axios.post('/auth/signup',userData, {withCredentials: true, credentials: 'include'})
-        return user.data
+        const user = await axios.post('/auth/signup',userData, {withCredentials: true, credentials: 'include'}).catch( (error) => {
+            if (error.response) {
+                console.log(error.response.data.message);
+                throw new Error(error.response.data.message);
+            }
+        })
+            return user.data
     }
     
+    
     catch(err) {
-        return console.error(err)
+        return err
     }
 
 

@@ -4,9 +4,10 @@ import shoppingPage from "../../pages/ShoppingPage/shoppingPage";
 
 import {shoppingTypes} from './shopping_items.types'
 
-export const getShoppingItemsSaga = () => {
+export const getShoppingItemsSaga = (category) => {
     return({
         type: shoppingTypes.getShoppingItemsSaga,
+        payload : category
     })
 } 
 
