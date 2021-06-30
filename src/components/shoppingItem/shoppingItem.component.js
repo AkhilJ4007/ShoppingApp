@@ -1,6 +1,6 @@
 import React from 'react'
 import './shoppingItem.component.css'
-const imageUrl = "http://localhost:3000/product/getImage/"
+const imageUrl = "https://shopping-app-akj.herokuapp.com/product/getImage/"
 function ShoppingItem({item,onItemClick}) {
     const newImageUrl = imageUrl + item.imageName
     return (

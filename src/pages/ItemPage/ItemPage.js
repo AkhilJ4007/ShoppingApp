@@ -6,7 +6,7 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from 'reac
 import {useSelector,useDispatch} from 'react-redux';
 import {getShoppingItemSaga} from '../../redux/shopping_items/shopping_items.actions'
 import {addCartItemSaga} from '../../redux/cart/cart.actions'
-const imageUrl = "http://localhost:3000/product/getImage/"
+const imageUrl = "https://shopping-app-akj.herokuapp.com/product/getImage/"
 function ItemPage(props) {
     const productId = props.match.params.id;
     const dispatch = useDispatch();
