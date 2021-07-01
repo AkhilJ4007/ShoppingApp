@@ -10,8 +10,15 @@ const alertTypes = require("../redux/alerts/alerts.types").alertTypes
 
 function* addToCart(action) {
     const addItem = yield call(axios.addCartItem(action.payload))
-    yield put({ type: alertTypes.alert, payload: "Item is added to cart" })
-    yield put({ type: cartConstants.addCartItem, payload: addItem })
+    if(addItem instanceof Error){
+        yield put({ type: alertTypes.alert, payload: "Item could not be added to cart" })
+    }
+    else{
+        yield put({ type: alertTypes.alert, payload: "Item is added to cart" })
+        yield put({ type: cartConstants.addCartItem, payload: addItem })
+    }
+    
+
 }
 
 function* deleteCartItem(action) {

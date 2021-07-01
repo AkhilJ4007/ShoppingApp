@@ -151,8 +151,14 @@ export const logout = async () => {
 
 export const addCartItem = ({numberOfitems,itemId}) => async () => {
     try {
-    const shoppingItems = await axios.post('/cart/addItem',{productId: itemId, quantity: numberOfitems},{withCredentials: true})
-
+    const shoppingItems = await axios.post('/cart/addItem',{productId: itemId, quantity: numberOfitems},{withCredentials: true}).catch(err => {
+        return err
+    })
+    console.log("add to cart axios error",shoppingItems)
+    if(shoppingItems instanceof Error){
+        console.log("In error cart")
+        return shoppingItems
+    }
     return shoppingItems.data
     } catch(err) {
     return console.error(err)
