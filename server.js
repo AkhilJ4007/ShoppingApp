@@ -18,7 +18,7 @@ const multer  = require('multer');
 var upload = multer();
 const GridFSStorage = require('multer-gridfs-storage');
 const mongoUrl = "mongodb+srv://90mmUser:5447@cluster.rcddm.mongodb.net/70mmDB?retryWrites=true&w=majority"
-
+const  path = require('path');
 var Grid = require('gridfs-stream');
 
 const PORT = process.env.PORT || 3000
