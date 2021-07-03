@@ -35,7 +35,15 @@ const { connect } = require('mongodb');
 //app.use(cors({ origin: 'http://localhost:3001', credentials: true }))
 
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+//app.use(express.static(path.join(__dirname, 'client/build')));
+
+if(process.env.NODE.ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+    });
+}
 
 //Add headers
 app.use(function (req, res, next) {
