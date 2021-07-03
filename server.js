@@ -96,7 +96,7 @@ app.use("/cart",cartRoute)
 
 app.use("/product",productRoutes)
 
-app.get('/',(req, res) => {
+app.get('/test',(req, res) => {
     res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes.",
                 });
 });
