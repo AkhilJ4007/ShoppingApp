@@ -37,13 +37,7 @@ const { connect } = require('mongodb');
 
 //app.use(express.static(path.join(__dirname, 'client/build')));
 
-if(process.env.NODE.ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-    });
-}
 
 //Add headers
 app.use(function (req, res, next) {
@@ -124,7 +118,13 @@ app.use(function (err, req, res, next) {
 })
 const connection = mongoose.connect(mongoUrl,{useNewUrlParser: true, useUnifiedTopology: true});
 
+if(process.env.NODE.ENV === 'production') {
+    app.use(express.static('client/build'));
 
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    });
+}
 
 // Init gfs
 
@@ -133,9 +133,5 @@ connection.then(result => {
     app.listen(PORT)
 
 }).catch( err => console.log("In here",err))
-
-
-
-
 
 
