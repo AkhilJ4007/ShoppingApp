@@ -87,7 +87,7 @@ export const getUser = async () => {
 export const login = userData => async () => {
 
     try{
-        const user = await axios.post('/auth/signIn',userData, { withCredentials: true, credentials: 'include'}).catch( (error) => {
+        const user = await axios.post('/auth/signIn',userData, { withCredentials: true, credentials: 'same-site'}).catch( (error) => {
             if (error.response) {
                 console.log(error.response.data.message);
                 throw new Error(error.response.data.message);
