@@ -119,8 +119,8 @@ app.use(function (err, req, res, next) {
 const connection = mongoose.connect(mongoUrl,{useNewUrlParser: true, useUnifiedTopology: true});
 
 if(process.env.NODE.ENV === 'production') {
-    app.use(express.static('client/build'));
-
+    app.use(express.static(path.join(__dirname, './client/build')));
+    console.log("In here")
     app.get('*', (req, res) => {
         console.log("In get/ huhu")
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
