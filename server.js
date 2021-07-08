@@ -15,6 +15,9 @@ const CookieParser = require('cookie-parser');
 var cors = require('cors')
 // multer
 const multer  = require('multer');
+// session
+var session = require('express-session');
+
 var upload = multer();
 const GridFSStorage = require('multer-gridfs-storage');
 const mongoUrl = "mongodb+srv://90mmUser:5447@cluster.rcddm.mongodb.net/70mmDB?retryWrites=true&w=majority"
@@ -64,7 +67,12 @@ app.use(function (req, res, next) {
     next();
 });
 
+// session
 
+app.use(session({
+    httpOnly: true,  // dont let browser javascript access cookie ever
+    secure: true, // only use cookie over https
+}));
 
 // global middleware for setting authorization header
 app.use(CookieParser());

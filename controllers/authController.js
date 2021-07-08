@@ -73,14 +73,16 @@ exports.SignIn = (req,res,next) => {
             }
             else{
             const token = jwt.sign({ data: user }, secret , {
-                expiresIn: 86400 // 1 day
+                expiresIn: 86400, // 1 day,
+            
+                
             });
             
             // setting cookie in browser
         
             if(token){
                 console.log("In user signIN",token)
-                res.cookie('token', `${token}`, { httpOnly: true })
+                res.cookie('token', `${token}`, { httpOnly: true})
 
                 // res.json({success: true, user: user})
                 // /// test 
