@@ -71,7 +71,8 @@ app.use(function (req, res, next) {
 
 app.use(session({
     httpOnly: true,  // dont let browser javascript access cookie ever
-    secure: true, // only use cookie over https
+    secure: true,
+    secret : "akj1234" // only use cookie over https
 }));
 
 // global middleware for setting authorization header
