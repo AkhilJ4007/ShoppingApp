@@ -21,6 +21,7 @@ function App() {
   function handleCookie() {
     setCookie("token", "akhil", {
       path: "/",
+      maxAge : 86400,
       secure : true,
       httpOnly :true
     });
@@ -28,7 +29,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getUserSaga())
-    handleCookie()
+    //handleCookie()
   })
 
   return (
