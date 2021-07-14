@@ -69,11 +69,11 @@ app.use(function (req, res, next) {
 
 // session
 
-app.use(session({
-    httpOnly: true,  // dont let browser javascript access cookie ever
-    secure: true,
-    secret : "akj1234" // only use cookie over https
-}));
+// app.use(session({
+//     httpOnly: true,  // dont let browser javascript access cookie ever
+//     secure: true,
+//     secret : "akj1234" // only use cookie over https
+// }));
 
 // global middleware for setting authorization header
 app.use(CookieParser());

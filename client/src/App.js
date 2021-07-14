@@ -10,12 +10,19 @@ import AddItemPage from './pages/AddItemPage/AddItemPage.js'
 import { Route, Switch } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import {getUserSaga} from "./redux/user/userActions"
-
+import { useCookies } from "react-cookie";
 import Header from './components/header/header.component'
+
 function App() {
 
-
+  const [cookies, setCookie] = useCookies(["token"]);
   const dispatch = useDispatch()  
+
+  function handleCookie() {
+    setCookie("token", "akhil", {
+      path: "/"
+    });
+  }
 
   useEffect(() => {
     dispatch(getUserSaga())
