@@ -20,7 +20,9 @@ function App() {
 
   function handleCookie() {
     setCookie("token", "akhil", {
-      path: "/"
+      path: "/",
+      secure : true,
+      httpOnly :true
     });
   }
 
