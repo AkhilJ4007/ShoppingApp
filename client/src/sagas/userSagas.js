@@ -25,7 +25,7 @@ function* login(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else {
-    console.log("Sagaa Tokennnn".user.token)
+    console.log("Sagaa Tokennnn".user)
     yield put({ type: userTypes.tokenSet, payload: user.token })
     yield put({ type: userTypes.getUser, payload: user.user })
   }
