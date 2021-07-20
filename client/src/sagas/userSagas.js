@@ -12,7 +12,10 @@ const alertTypes = require("../redux/alerts/alerts.types").alertTypes
 function* getUser() {
     const user = yield call(axios.getUser)
     console.log("User ",user)
-    yield put({ type: userTypes.getUser, payload: user })
+    if(user){
+      yield put({ type: userTypes.getUser, payload: user })
+    }
+    
 }
 
 function* login(action) {
@@ -22,7 +25,7 @@ function* login(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else {
-    console.log("Tokennnn".user.token)
+    console.log("Sagaa Tokennnn".user.token)
     yield put({ type: userTypes.tokenSet, payload: user.token })
     yield put({ type: userTypes.getUser, payload: user.user })
   }

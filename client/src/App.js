@@ -36,7 +36,10 @@ function App() {
 
 
   useEffect(() => {
-    handleCookie(token)
+    if(token){
+      handleCookie(token)
+    }
+    
   },[token])
 
   return (
