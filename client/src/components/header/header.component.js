@@ -64,6 +64,7 @@ function Header() {
                 
                 <Dropdown  isOpen={dropdownOpen} toggle={toggleDropDown}>
                     <DropdownToggle className="dropdownbutton" color = "black" caret>
+                        {console.log("User",user.name)}
                         {user ? user.user.name : ""}
                     </DropdownToggle>
                     <DropdownMenu right>
