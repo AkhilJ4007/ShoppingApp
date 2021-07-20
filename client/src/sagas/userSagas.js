@@ -22,6 +22,7 @@ function* login(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else {
+    console.log(user)
     yield put({ type: userTypes.getUser, payload: user })
   }
 
@@ -35,7 +36,7 @@ function* signUp(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else{
-
+    console.log(user)
     yield put({ type: userTypes.getUser, payload: user })
     yield put({ type: alertTypes.alert, payload: "Account created" })
   }

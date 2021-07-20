@@ -40,7 +40,8 @@ exports.postSignup = (req,res,next) => {
                 
                 if(token){
                     console.log("In user signUp",token)
-                    res.cookie('token', `${token}`, { httpOnly: true }).json({success: true, user: user, token : token})
+                    //res.cookie('token', `${token}`, { httpOnly: true }).json({success: true, user: user, token : token})
+                    res.json({success: true, user: user, token: token})
                 }
         
             
@@ -82,9 +83,9 @@ exports.SignIn = (req,res,next) => {
         
             if(token){
                 console.log("In user signIN",token)
-                res.cookie('token', `${token}`, { httpOnly: true})
-                res.redirect("https://akj-shopping.herokuapp.com/")
-                // res.json({success: true, user: user})
+                // res.cookie('token', `${token}`, { httpOnly: true})
+                // res.redirect("https://akj-shopping.herokuapp.com/")
+                res.json({success: true, user: user, token: token})
                 // /// test 
                 // res.redirect("http://localhost:3001")
             }
