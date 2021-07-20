@@ -22,8 +22,9 @@ function* login(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else {
-    console.log(user)
-    yield put({ type: userTypes.getUser, payload: user })
+    //console.log(user)
+    yield put({ type: userTypes.tokenSet, payload: user.token })
+    yield put({ type: userTypes.getUser, payload: user.user })
   }
 
 }
@@ -36,8 +37,9 @@ function* signUp(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else{
-    console.log(user)
-    yield put({ type: userTypes.getUser, payload: user })
+    //console.log(user)
+    yield put({ type: userTypes.tokenSet, payload: user.token })
+    yield put({ type: userTypes.getUser, payload: user.user })
     yield put({ type: alertTypes.alert, payload: "Account created" })
   }
 

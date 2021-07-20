@@ -7,5 +7,6 @@ export const userTypes = {
     signUpSaga: "SIGN_UP_SAGA",
     googleLoginSaga:"GOOGLE_LOGIN_SAGA",
     logout: "LOGOUT",
-    logoutSaga:"LOGOUT_SAGA"
+    logoutSaga:"LOGOUT_SAGA",
+    tokenSet : "TOKEN_SET"
 }

@@ -2,6 +2,7 @@ const userTypes = require("./userTypes").userTypes
 
 const INITIAL_STATE = {
     user : null,
+    token : null
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 user : action.payload,
+            };
+
+        case userTypes.tokenSet:
+            return {
+                ...state,
+                token : action.payload,
             };
 
         case userTypes.logout :
