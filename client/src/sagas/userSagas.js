@@ -22,7 +22,7 @@ function* login(action) {
       yield put({ type: alertTypes.alert, payload: user.message })
   }
   else {
-    //console.log(user)
+    console.log("Tokennnn".user.token)
     yield put({ type: userTypes.tokenSet, payload: user.token })
     yield put({ type: userTypes.getUser, payload: user.user })
   }

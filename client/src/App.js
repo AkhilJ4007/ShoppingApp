@@ -20,6 +20,7 @@ function App() {
   const token = useSelector(state => state.user.token)
 
   function handleCookie(token) {
+    console.log("TOken",token)
     setCookie("token", token, {
       path: "/",
       maxAge : 86400,
