@@ -21,7 +21,7 @@ function App() {
 
   function handleCookie(token) {
     console.log("TOken",token)
-    setCookie("token", token, {
+    setCookie("token", "akhil", {
       path: "/",
       maxAge : 86400,
       secure : true,
