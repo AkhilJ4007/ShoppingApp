@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch()  
   const token = useSelector(state => state.user.token)
 
-  function handleCookie(token) {
+  function handleCookie() {
     console.log("TOken",token)
     setCookie("token", "akhil", {
       path: "/",
@@ -30,13 +30,13 @@ function App() {
 
   useEffect(() => {
     dispatch(getUserSaga())
-    handleCookie(null)
+    handleCookie()
   })
 
 
   useEffect(() => {
     if(token){
-      handleCookie(token)
+      //handleCookie(token)
     }
     
   },[token])
