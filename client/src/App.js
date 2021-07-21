@@ -25,7 +25,6 @@ function App() {
       path: "/",
       maxAge : 86400,
       secure : true,
-      httpOnly :true
     });
   }
 
