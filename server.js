@@ -131,7 +131,7 @@ if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, './client/build')));
     console.log("In here")
     app.get('*', (req, res) => {
-        console.log("In get/ huhu")
+        //console.log("In get/ huhu")
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     });
 }

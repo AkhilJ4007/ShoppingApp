@@ -24,7 +24,7 @@ exports.addToCart = (req,res,next) => {
     const quantity =  req.body.quantity
     const userID = req.user._id
 
-
+    console.log("In add to cart",userID)
 
     const item = {productId: productId, quantity: quantity}
 
