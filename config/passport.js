@@ -11,6 +11,7 @@ var opts = {}
 
 
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+console.log("OPtions jwt", opts.jwtFromRequest)
 opts.secretOrKey = secret.secret;
 
 // JWT
