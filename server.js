@@ -84,6 +84,7 @@ app.use((req, res, next) => {
     //console.log("In the cookie",authHeader)
     if (authHeader) {
     req.headers.authorization = `Bearer ${authHeader}`;
+    console.log("Header ",req.headers.authorization)
     }
     next();
 });
