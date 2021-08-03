@@ -89,7 +89,7 @@ app.use((req, res, next) => {
     console.log("In cookie parser",authHeader)
     //console.log("In the cookie",authHeader)
     if (authHeader) {
-    req.headers.authorization = `Bearer ${authHeader}`;
+    req.headers.authorization = `bearer ${authHeader}`;
     console.log("Header ",req.headers.authorization)
     }
     next();
