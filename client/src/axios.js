@@ -1,16 +1,16 @@
-import Axios from "axios";
+import axios from "axios";
 import {useSelector,useDispatch} from 'react-redux'
 
 
 
-export const axios = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
-headers: {'Content-Type': 'application/json'}
-});
+// export const axios = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
+// headers: {'Content-Type': 'application/json'}
+// });
 
 
-export const axiosFormData = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
-headers: {'Content-Type': 'multipart/form-data'}
-});
+// export const axiosFormData = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
+// headers: {'Content-Type': 'multipart/form-data'}
+// });
 
 
 //---------- SHOP AXIOS ---------
