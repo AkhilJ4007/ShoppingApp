@@ -10,7 +10,7 @@ var opts = {}
 
 
 
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.jwtFromRequest = ExtractJwt.fromHeader('authorization');
 console.log("OPtions jwt", opts.jwtFromRequest)
 opts.secretOrKey = secret.secret;
 
