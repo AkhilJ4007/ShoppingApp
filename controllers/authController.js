@@ -99,6 +99,8 @@ exports.SignIn = (req,res,next) => {
 
 exports.getProfile = (req, res, next) => {
     
+    console.log("In Get Profile")
+
     if(req.user){
         res.json({
             user: {
@@ -112,6 +114,7 @@ exports.getProfile = (req, res, next) => {
     }
 
     else if(req.err){
+        console.log("In Get Profile error", req.err)
         const error = new CustomError("Error occurred")
         error.statusCode = 401
         error.data = req.err
