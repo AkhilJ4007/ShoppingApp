@@ -74,7 +74,13 @@ app.use(function (req, res, next) {
 //     secure: true,
 //     secret : "akj1234" // only use cookie over https
 // }));
+// passport initialize
+app.use(passport.initialize());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
 
+// parse requests of content-type - application/json basically send requests in json format
+app.use(bodyParser.json())
 // global middleware for setting authorization header
 app.use(CookieParser());
 app.use((req, res, next) => {
@@ -88,13 +94,13 @@ app.use((req, res, next) => {
     }
     next();
 });
-// passport initialize
-app.use(passport.initialize());
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+// // passport initialize
+// app.use(passport.initialize());
+// // parse requests of content-type - application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: true }))
 
-// parse requests of content-type - application/json basically send requests in json format
-app.use(bodyParser.json())
+// // parse requests of content-type - application/json basically send requests in json format
+// app.use(bodyParser.json())
 
 // for parsing multipart/form-data
 // app.use(upload.array()); 
