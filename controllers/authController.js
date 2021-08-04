@@ -84,7 +84,7 @@ exports.SignIn = (req,res,next) => {
             if(token){
                 console.log("In user signIN",token)
                 res.cookie('token', `${token}`, { httpOnly: true})
-                res.redirect("/")
+                res.redirect('back')
                 //res.json({success: true, user: user, token: token})
                 // /// test 
                 // res.redirect("http://localhost:3001")
