@@ -8,7 +8,7 @@ import {useSelector,useDispatch} from 'react-redux'
 // });
 
 
-export const axiosFormData = Axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
+export const axiosFormData = axios.create({ baseURL: "https://shopping-app-akj.herokuapp.com/",
 headers: {'Content-Type': 'multipart/form-data'}
 });
 
