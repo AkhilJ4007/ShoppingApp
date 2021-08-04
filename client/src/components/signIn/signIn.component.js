@@ -3,14 +3,24 @@ import { FormControl,InputLabel,Input,FormHelperText } from '@material-ui/core';
 import "./signIn.component.css"
 import "../../css/buttonAnimation.css"
 import { useForm } from "react-hook-form";
+import GoogleLogin from 'react-google-login'
 import {useSelector,useDispatch} from 'react-redux'
 import {googleLoginSaga,signUpSaga,loginSaga} from "../../redux/user/userActions"
+
+
 function SignIn({signIn}) {
 
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch()  
 
-    
+    const responseSuccessGoogle = (response) => {
+        console.log("In response Success", response)
+    }
+
+    const responseFailureGoogle = (response) => {
+
+
+    }
 
     let userName = () => {
         return(
@@ -90,7 +100,14 @@ function SignIn({signIn}) {
             </form>
             
             <div style = {{marginTop:"1rem"}}>
-                <button onClick = {googleSignIn} > Sign in with google</button>
+            <GoogleLogin
+                clientId="918094003460-bsppt5q2utgdmaredmltbjssia9k02i7.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={responseSuccessGoogle}
+                onFailure={responseFailureGoogle}
+                isSignedIn={true}
+                cookiePolicy={'single_host_origin'}
+            />
             </div>
                 
             </div>
