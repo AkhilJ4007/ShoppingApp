@@ -40,8 +40,8 @@ exports.postSignup = (req,res,next) => {
                 
                 if(token){
                     console.log("In user signUp",token)
-                    //res.cookie('token', `${token}`, { httpOnly: true }).json({success: true, user: user, token : token})
-                    res.json({success: true, user: user, token: token})
+                    res.cookie('token', `${token}`, { httpOnly: true }).json({success: true, user: user, token : token})
+                    //res.json({success: true, user: user, token: token})
                 }
         
             
