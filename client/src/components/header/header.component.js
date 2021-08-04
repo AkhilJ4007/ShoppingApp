@@ -65,7 +65,7 @@ function Header() {
                 <Dropdown  isOpen={dropdownOpen} toggle={toggleDropDown}>
                     <DropdownToggle className="dropdownbutton" color = "black" caret>
                         {console.log("User", user)}
-                        {user ? user.name : ""}
+                        {user ? user.user.name : ""}
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem><NavLink className = "menuItemsNav" to = "/cart">My Cart</NavLink></DropdownItem>

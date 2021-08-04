@@ -27,7 +27,7 @@ function* login(action) {
   else {
     //console.log("Sagaa Tokennnn",user)
     //yield put({ type: userTypes.tokenSet, payload: user.token })
-    yield put({ type: userTypes.getUser, payload: user.user })
+    yield put({ type: userTypes.getUser, payload: user })
   }
 
 }
