@@ -60,7 +60,18 @@ export const addShoppingItem = (product) => async () => {
         console.log("Product",product)
     const shoppingItems = await axiosFormData.post('/product/addProduct',formData,{
         withCredentials: true
+    }).catch(err => {
+        return err
     })
+
+    if(shoppingItems instanceof Error){
+        console.log("In error cart")
+        return shoppingItems
+    }
+    return shoppingItems.data
+    } catch(err) {
+    return console.error(err)
+    }
     
     return shoppingItems.data
 

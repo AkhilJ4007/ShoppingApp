@@ -16,10 +16,10 @@ function HomePage(props) {
         <Container>
             <Row className = "categories">
                 <Col md = "4" className = "firstRow">
-                    <Category onItemClick = {onItemClick} cat = "M" img = "https://images.pexels.com/photos/1964970/pexels-photo-1964970.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" name = "Man" on/>
+                    <Category onItemClick = {onItemClick} cat = "M" img = "https://images.pexels.com/photos/1964970/pexels-photo-1964970.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" name = "Men" on/>
                 </Col>
                 <Col md = "4" className = "firstRow">
-                    <Category onItemClick = {onItemClick} cat = "W" img = "https://images.pexels.com/photos/2531734/pexels-photo-2531734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" name = "Woman"/>
+                    <Category onItemClick = {onItemClick} cat = "W" img = "https://images.pexels.com/photos/2531734/pexels-photo-2531734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" name = "Women"/>
                 </Col>
                 <Col md = "4" className = "firstRow">
                     <Category onItemClick = {onItemClick} cat = "K" img = "https://images.pexels.com/photos/1619801/pexels-photo-1619801.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" name = "Kids"/>

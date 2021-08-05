@@ -6,6 +6,7 @@ import {
 } from 'redux-saga/effects'
 const axios = require("../axios")
 const shoppingConstants = require("../redux/shopping_items/shopping_items.types").shoppingTypes
+const alertTypes = require("../redux/alerts/alerts.types").alertTypes
 
 
   // Here's the unique part, generator function*, function with asterisk(*)
@@ -28,7 +29,14 @@ const shoppingConstants = require("../redux/shopping_items/shopping_items.types"
   function* addShoppingItem(action) {
     
     const shoppingItem = yield call(axios.addShoppingItem(action.payload))
-    yield put({ type: shoppingConstants.addShoppingItem, payload: shoppingItem })
+    if(shoppingItem instanceof Error){
+      yield put({ type: alertTypes.alert, payload: "Item could not be added to Store" })
+    }
+    else{
+      yield put({ type: alertTypes.alert, payload: "Item added to the Store" })  
+      yield put({ type: shoppingConstants.addShoppingItem, payload: shoppingItem })
+    }
+
 }
 
 
