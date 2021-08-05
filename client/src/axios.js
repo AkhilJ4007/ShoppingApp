@@ -73,12 +73,8 @@ export const addShoppingItem = (product) => async () => {
     return console.error(err)
     }
     
-    return shoppingItems.data
-
-    } catch(err) {
-    return console.error(err)
-    }
 }
+
 
 //---------- USER AXIOS ---------
 // get user
