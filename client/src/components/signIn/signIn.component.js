@@ -46,13 +46,13 @@ function SignIn({signIn}) {
         )
     }
 
-    // const googleSignIn = () => {
+    const googleSignIn = () => {
 
-    //     window.open("https://shopping-app-akj.herokuapp.com/auth/google","_self")
+        window.open("https://akj-shopping.herokuapp.com/auth/google","_self")
 
-    //     // console.log("In google Sign in component")
-    //     // dispatch(googleLoginSaga())
-    // }
+        // console.log("In google Sign in component")
+        // dispatch(googleLoginSaga())
+    }
     // data exists in this function
 
     const onSubmit = data => {
@@ -100,13 +100,14 @@ function SignIn({signIn}) {
             </form>
             
             <div style = {{marginTop:"1rem"}}>
-            <GoogleLogin
+            {/* <GoogleLogin
                 clientId="918094003460-bsppt5q2utgdmaredmltbjssia9k02i7.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={responseSuccessGoogle}
                 onFailure={responseFailureGoogle}
                 cookiePolicy={'single_host_origin'}
-            />
+            /> */}
+            <button onClick = {googleSignIn} > Sign in with google</button>
             </div>
                 
             </div>

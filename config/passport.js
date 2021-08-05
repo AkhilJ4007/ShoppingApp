@@ -11,7 +11,7 @@ var opts = {}
 
 
 opts.jwtFromRequest = ExtractJwt.fromHeader('authorization');
-console.log("OPtions jwt", opts.jwtFromRequest)
+//console.log("OPtions jwt", opts.jwtFromRequest)
 opts.secretOrKey = secret.secret;
 
 // JWT
@@ -50,7 +50,7 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
     clientID: secret.GOOGLE_CLIENT_ID,
     clientSecret: secret.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://shopping-app-akj.herokuapp.com/auth/google/callback"
+    callbackURL: "https://akj-shopping.herokuapp.com/auth/google/callback"
 },
     function(accessToken, refreshToken, profile, done) {
         User.findOrCreate({ name: profile.displayName, email: profile._json.email }, 
