@@ -100,13 +100,6 @@ function SignIn({signIn}) {
             </form>
             
             <div style = {{marginTop:"1rem"}}>
-            {/* <GoogleLogin
-                clientId="918094003460-bsppt5q2utgdmaredmltbjssia9k02i7.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseSuccessGoogle}
-                onFailure={responseFailureGoogle}
-                cookiePolicy={'single_host_origin'}
-            /> */}
             <button onClick = {googleSignIn} > Sign in with google</button>
             </div>
                 
